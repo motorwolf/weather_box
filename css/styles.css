@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hotpink;
+}
+
+#frame {
+  background-color: brown;
+  width: 360px;
+  height: 360px;
+  padding: 20px;
+}
+
+#window {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  background-color: white;
+}
+
+#testWindowFrame {
+  width: 140px;
+  padding: 20px;
+  height: 140px;
+  background-color: brown;
+}
+
+#testWindow {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+}
