@@ -11,6 +11,7 @@ body {
   width: 360px;
   height: 360px;
   padding: 20px;
+  margin: 100px auto;
 }
 
 #window {
@@ -18,6 +19,42 @@ body {
   width: 320px;
   height: 320px;
   background-color: white;
+}
+
+.skyTop {
+  fill: darkblue;
+}
+.skyMidTop {
+  fill: pink;
+}
+.skyMidBottom {
+  fill: green;
+}
+.skyBottom {
+  fill: purple;
+  animation: oranging 1.8s infinite alternate ease-in-out;;
+}
+.ground {
+  fill: black;
+}
+#roof {
+  fill: brown;
+}
+
+#houseFront {
+  fill: white;
+}
+
+#houseSide {
+  fill: gray
+}
+
+#crescent {
+  fill: yellow;
+}
+
+#celestialBody {
+fill: orange;
 }
 
 #testWindowFrame {
@@ -31,4 +68,19 @@ body {
   width: 100px;
   height: 100px;
   background-color: white;
+}
+
+@keyframes oranging {
+  50% {
+    fill: orange;
+  }
+  60% {
+    fill: pink;
+  }
+  70% {
+    fill: white;
+  }
+  80% {
+    fill: purple;
+  }
 }
