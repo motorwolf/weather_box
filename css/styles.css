@@ -6,6 +6,18 @@ body {
   background-color: hotpink;
 }
 
+#messageBox {
+  width: 75%;
+  min-height: 200px;
+  background-color: white;
+  border: 20px solid brown;
+  padding: 20px;
+  margin: 0 auto;
+  color: black;
+  font-family: Georgia;
+  font-size: 20px;
+}
+
 #frame {
   background-color: brown;
   width: 360px;
@@ -32,7 +44,7 @@ body {
 }
 .skyBottom {
   fill: purple;
-  animation: oranging 1.8s infinite alternate ease-in-out;;
+  /* animation: oranging 18s infinite alternate ease-in-out;; */
 }
 .ground {
   fill: black;
@@ -69,7 +81,9 @@ fill: orange;
   height: 100px;
   background-color: white;
 }
-
+.red {
+  fill: red;
+}
 @keyframes oranging {
   50% {
     fill: orange;
