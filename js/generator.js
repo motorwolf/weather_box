@@ -27,7 +27,8 @@ const classMapRow = {
 };
 
 const classMapColumn = {
-  // nothing here yet!
+  rainGroup1: ["C2","C7","C12","C18","C24","C28"],
+  rainGroup2: ["C5","C10","C15","C21","C26","C31"]
 }
 
 const idMapAreas = {
@@ -235,54 +236,336 @@ const idMapAreas = {
   'R27 C19' ],
 
   crescent:
-  [ 'R3 C25',
-  'R3 C26',
+  [ 'R2 C25',
+  'R2 C26',
+  'R3 C27',
+  'R3 C28',
   'R4 C27',
   'R4 C28',
   'R5 C27',
   'R5 C28',
+  'R5 C29',
   'R6 C27',
   'R6 C28',
   'R6 C29',
   'R7 C27',
   'R7 C28',
-  'R7 C29',
   'R8 C27',
   'R8 C28',
-  'R9 C27',
-  'R9 C28',
-  'R10 C25',
-  'R10 C26' ],
+  'R9 C25',
+  'R9 C26',
+"R2 C27",
+"R9 C27",
+"R8 C26",
+"R3 C26",
+"R7 C29",
+"R4 C29"
+  ],
   
   celestialBody: 
-  [ 'R4 C23',
+  [ 'R3 C23',
+  'R3 C24',
+  'R3 C25',
+  'R3 C26',
+  'R4 C23',
   'R4 C24',
   'R4 C25',
   'R4 C26',
+  'R5 C24',
+  'R5 C25',
+  'R5 C26',
+  'R6 C23',
+  'R6 C24',
+  'R6 C25',
+  'R6 C26',
+  'R7 C23',
+  'R7 C24',
+  'R7 C25',
+  'R7 C26',
+  'R8 C24',
+  'R8 C25',
+  'R8 C26',
+  "R2 C24",
+  "R5 C23",
+  "R4 C22",
+  "R5 C22",
+  "R6 C22",
+  "R7 C22",
+  "R8 C23",
+  "R9 C24"
+  ],
+  cloud:
+[ 'R3 C19',
+  'R3 C20',
+  'R3 C21',
+  'R3 C22',
+  'R3 C23',
+  'R4 C18',
+  'R4 C19',
+  'R4 C20',
+  'R4 C21',
+  'R4 C22',
+  'R4 C23',
+  'R4 C24',
+  'R5 C15',
+  'R5 C16',
+  'R5 C17',
+  'R5 C18',
+  'R5 C19',
+  'R5 C20',
+  'R5 C21',
+  'R5 C22',
   'R5 C23',
   'R5 C24',
   'R5 C25',
   'R5 C26',
+  'R5 C27',
+  'R6 C14',
+  'R6 C15',
+  'R6 C16',
+  'R6 C17',
+  'R6 C18',
+  'R6 C19',
+  'R6 C20',
+  'R6 C21',
   'R6 C22',
   'R6 C23',
   'R6 C24',
   'R6 C25',
   'R6 C26',
+  'R6 C27',
+  'R6 C28',
+  'R7 C15',
+  'R7 C16',
+  'R7 C17',
+  'R7 C18',
+  'R7 C19',
+  'R7 C20',
+  'R7 C21',
   'R7 C22',
   'R7 C23',
   'R7 C24',
   'R7 C25',
   'R7 C26',
+  'R7 C27' ],
+  thunder:
+[ 'R8 C21',
+  'R8 C22',
   'R8 C23',
   'R8 C24',
   'R8 C25',
-  'R8 C26',
+  'R9 C21',
+  'R9 C22',
   'R9 C23',
   'R9 C24',
   'R9 C25',
-  'R9 C26' ]
+  'R10 C20',
+  'R10 C21',
+  'R10 C22',
+  'R10 C23',
+  'R11 C19',
+  'R11 C20',
+  'R11 C21',
+  'R12 C19',
+  'R12 C20',
+  'R12 C21',
+  'R13 C20',
+  'R13 C21',
+  'R14 C20',
+  'R14 C21',
+  'R15 C20',
+  'R15 C21',
+  'R16 C21',
+  'R16 C22',
+  'R16 C23',
+  'R17 C22',
+  'R17 C23',
+  'R17 C24',
+  'R18 C21',
+  'R18 C22',
+  'R19 C20',
+  'R19 C21' ],
+  stars: [
+  "R6 C8",
+  "R10 C5",
+  "R4 C4",
+  "R2 C14",
+  "R8 C14",
+  "R11 C10",
+  "R5 C19",
+  "R10 C21",
+  "R15 C21",
+  "R12 C26",
+  "R17 C29"
+  ],
+  snow:
+  [
+  "R6 C2",
+  "R13 C4",
+  "R16 C2",
+  "R19 C5",
+  "R25 C3",
+  "R28 C7",
+  "R24 C8",
+  "R26 C14",
+  "R29 C13",
+  "R16 C14",
+  "R13 C10",
+  "R11 C15",
+  "R6 C11",
+  "R3 C9",
+  "R6 C15",
+  "R2 C18",
+  "R8 C20",
+  "R4 C23",
+  "R6 C25",
+  "R3 C30",
+  "R12 C23",
+  "R17 C25",
+  "R19 C21",
+  "R23 C24",
+  "R22 C15",
+  "R27 C20",
+  "R31 C19",
+  "R27 C26",
+  "R24 C22",
+  "R29 C30",
+  "R23 C28",
+  "R13 C29",
+  "R10 C31",
+  "R19 C8",
+  "R15 C11",
+  "R30 C4"
+  ],
+  snowroof: 
+  [
+  "R14 C10",
+  "R14 C11",
+  "R14 C12",
+  "R14 C13",
+  "R14 C14",
+  "R15 C11",
+  "R15 C12",
+  "R15 C10",
+  "R15 C13",
+  "R15 C14",
+  "R15 C15",
+  "R14 C9",
+  "R16 C10",
+  "R17 C11",
+  "R18 C12",
+  "R18 C13",
+  "R18 C14",
+  "R18 C15",
+  "R18 C16",
+  "R18 C17",
+  "R17 C16",
+  "R17 C15",
+  "R16 C15",
+  "R16 C14",
+  "R17 C14",
+  "R16 C13",
+  "R17 C13",
+  "R16 C12",
+  "R16 C11",
+  "R17 C12",
+  "R19 C14",
+  "R19 C15",
+  "R19 C16",
+  "R19 C13",
+  ],
+  bigCloud: 
+  [
+  "R8 C16",
+  "R8 C17",
+  "R8 C18",
+  "R8 C19",
+  "R8 C20",
+  "R8 C21",
+  "R8 C22",
+  "R8 C23",
+  "R8 C24",
+  "R8 C25",
+  "R4 C17",
+  "R3 C18",
+  "R2 C19",
+  "R2 C20",
+  "R2 C21",
+  "R2 C22",
+  "R5 C14",
+  "R6 C13",
+  "R5 C13",
+  "R6 C12",
+  "R6 C11",
+  "R5 C12",
+  "R7 C12",
+  "R7 C13",
+  "R7 C14",
+  "R7 C11",
+  "R8 C12",
+  "R8 C13",
+  "R8 C14",
+  "R8 C15",
+  "R9 C20",
+  "R9 C21",
+  "R9 C22",
+  "R9 C24",
+  "R9 C23",
+  "R9 C19",
+  "R9 C17",
+  "R10 C18",
+  "R9 C18",
+  "R9 C15",
+  "R9 C16",
+  "R10 C17",
+  "R10 C19",
+  "R10 C20",
+  "R10 C21",
+  "R10 C22",
+  "R10 C23",
+  "R10 C24",
+  "R10 C26",
+  "R10 C25",
+  "R10 C27",
+  "R10 C28",
+  "R8 C29",
+  "R9 C28",
+  "R9 C29",
+  "R4 C16",
+  "R3 C17",
+  "R6 C30",
+  "R6 C31",
+  "R6 C32",
+  "R7 C30",
+  "R7 C31",
+  "R7 C32",
+  "R8 C30",
+  "R8 C31",
+  "R8 C32" 
+  ]
 };
 
+const calculateRawData = (string) => {
+  const coordinates = [];
+  string.split(",").map(crange => {
+    let dividedRange = crange.split(" ");
+    dividedRange[1] = dividedRange[1].substring(1);
+    let startEnd = dividedRange[1].split("-");
+    if(startEnd.length === 1){
+      coordinates.push(`${dividedRange[0]}, C${startEnd}`);
+    }
+    else {
+    let start = startEnd[0];
+    let end = startEnd[1];
+    for(let i = start; i <= end; i++){
+      let coord = `${dividedRange[0]} C${i}`;
+      coordinates.push(coord);
+    }
+    }
+  });
+  return coordinates;
+}
+//console.log(calculateRawData(rawStars));
 const convertCSS = (coords) => {
   return coords.split(',').map(coord => {
     coord = coord.substring(1);
@@ -294,7 +577,7 @@ const convertCSS = (coords) => {
   });
 };
 
-const classFinder = (coordinates,classes) => {
+const classRowFinder = (coordinates,classes) => {
   let addedClasses = [];
   coordinates = coordinates.split(" ");
   for(let className in classes){
@@ -310,6 +593,17 @@ const classFinder = (coordinates,classes) => {
   } 
   else {
     return addedClasses.join(" ");
+  }
+}
+const classColumnFinder = (coordinates,columnNumbers) => {
+  let addedClasses = [];
+  let target = coordinates.split(" ")[1];
+  for(let columns in columnNumbers){
+    if(columnNumbers[columns].some(coord => {
+      return coord === target;
+    })){
+      return columns;
+    }
   }
 }
 
@@ -354,10 +648,14 @@ const generateCode = (svg,targetAreas) => {
           y%2 !== 0 ? fill = svg.color : fill = svg.altColor;
         }
         rectClass = `R${x + 1} C${y + 1}`;
-        let addedClasses = classFinder(rectClass,classMapRow);
+        let addedClasses = classRowFinder(rectClass,classMapRow);
+        let addedColumnClasses = classColumnFinder(rectClass,classMapColumn);
         let addedIds = idFinder(rectClass,idMapAreas);
         if(addedClasses){
           rectClass += ` ${addedClasses}`;
+        }
+        if(addedColumnClasses){
+          rectClass += ` ${addedColumnClasses}`;
         }
         if(addedIds){
           id = addedIds;
@@ -368,7 +666,7 @@ const generateCode = (svg,targetAreas) => {
         yVal = `${x * 10}px`;
         xVal = `${y * 10}px`;
         opacity = svg.opacityIncrement + (svg.opacityIncrement * y);
-        rect = `<rect class="${rectClass}" id="${id}" fill="${fill}" height="${pxHeight}" width="${pxWidth}" y="${yVal}" x="${xVal}"></rect> \n`;
+        rect = `<rect class="${rectClass} ${id}" fill="${fill}" height="${pxHeight}" width="${pxWidth}" y="${yVal}" x="${xVal}"></rect> \n`;
         svgbody.push(rect);
       }
     }

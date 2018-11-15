@@ -1,3 +1,25 @@
+:root {
+  --skyTop: #1ED2FF;
+  --skyMidTop: #14BEFF;
+  --skyMidBottom: #23ABFF;
+  --skyBottom: #23ABFF;
+  --ground: #9aff70; 
+  /* // #9AFF17 TOO NEON? */
+  --roof: #333;
+  --houseFront: #C33;
+  --houseSide: #A01700;
+  --crescent: #F7F211;
+  --celestialBody: #F7F211;
+  --celestialBody-glow: #FFE216;
+  --cloud: #A8A8A8;
+  --thunder: #2DFFF4;
+  --snowroof: white;
+  --bigCloud: #A8A8A8;
+  --stars: #F9FED1;
+  --snow: white;
+  --rain: #E0E0E0;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -6,7 +28,8 @@ body {
   background-color: hotpink;
 }
 
-#messageBox {
+#messageBox,
+.frameBox {
   width: 75%;
   min-height: 200px;
   background-color: white;
@@ -23,7 +46,7 @@ body {
   width: 360px;
   height: 360px;
   padding: 20px;
-  margin: 100px auto;
+  margin: 30px auto;
 }
 
 #window {
@@ -33,43 +56,73 @@ body {
   background-color: white;
 }
 
+
 .skyTop {
-  fill: darkblue;
+  fill: var(--skyTop);
 }
 .skyMidTop {
-  fill: pink;
+  fill: var(--skyMidTop);
 }
 .skyMidBottom {
-  fill: green;
+  fill: var(--skyMidBottom);
 }
 .skyBottom {
-  fill: purple;
-  /* animation: oranging 18s infinite alternate ease-in-out;; */
+  fill: var(--skyBottom);
+  /* animation: oranging 18s infinite alternate ease-in-out; */
 }
 .ground {
-  fill: black;
+  fill: var(--ground);
 }
-#roof {
-  fill: brown;
-}
-
-#houseFront {
-  fill: white;
+.roof {
+  fill: var(--roof);
 }
 
-#houseSide {
-  fill: gray
+.houseFront {
+  fill: var(--houseFront);
 }
 
-#crescent {
-  fill: yellow;
+.houseSide {
+  fill: var(--houseSide);
 }
 
-#celestialBody {
-fill: orange;
+.crescent {
+  fill: var(--crescent);
 }
 
-#testWindowFrame {
+.celestialBody {
+  fill: var(--celestialBody);
+}
+.cloud {
+  /* fill: var(--cloud); */
+}
+
+.thunder {
+  /* fill: var(--thunder); */
+}
+
+.snowroof {
+  /* fill: var(--snowroof); */
+}
+.bigCloud {
+  /* fill: var(--bigCloud); */
+}
+.stars {
+  /* fill: var(--stars); */
+}
+.snow {
+  /* fill: var(--snow); */
+}
+
+.rainGroup1 {
+  /* animation: 10s rainGroup1 3s infinite ease-in-out; */
+  /* fill: var(--rain); */
+}
+.rainGroup2 {
+  /* animation: 10s rainGroup2 3s infinite ease-in-out; */
+  /* fill: var(--rain); */
+}
+
+.testWindowFrame {
   width: 140px;
   padding: 20px;
   height: 140px;
@@ -81,8 +134,23 @@ fill: orange;
   height: 100px;
   background-color: white;
 }
+
+.C10 {
+  /* animation: rain 10s infinite alternate ease-in-out; */
+}
 .red {
   fill: red;
+}
+@keyframes twinkle {
+  20% {
+    fill: white;
+  }
+  30% {
+    fill: yellow;
+  }
+  40% {
+    fill: white;
+  }
 }
 @keyframes oranging {
   50% {
@@ -98,3 +166,20 @@ fill: orange;
     fill: purple;
   }
 }
+@keyframes rainGroup1 {
+  10% {
+    fill: gray;
+  }
+  32% {
+  
+  }
+}
+@keyframes rainGroup2 {
+  60% {
+    fill: gray;
+  }
+  62% {
+    
+  }
+}
+
