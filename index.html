@@ -1045,13 +1045,27 @@
       </div>
       <div id="messageBox">
         Behold, my tiny svg world.
-      </div>
-      <h1>AUTHORS</h1>
-      <ul id="authors">
-      
-      </ul>
-      <svg>
-    </svg>
+        </div>
+         <form id="weatherChanger">
+            <input type="text"/>
+            <label for="weather">You have chosen god mode. Select thy weather: </label>
+            <select name="weather" id="weather">     
+              <option value="THUNDER">THUNDER</option>
+              <option value="CLEARRAIN">CLEAR RAIN</option>
+              <option value="CLEAR">CLEAR SKY</option>
+              <option value="LIGHTCLOUD">SOME CLOUDS</option>
+              <option value="FOG">FOG</option>
+              <option value="HEAVYCLOUD">CLOUDY</option>
+              <option value="SNOW">SNOW</option>
+            </select>
+            <label for="time"> SELECT THY TIME </label>
+            <select name="time" id="time">
+              <option value="DAY">DAYTIME</option>
+              <option value="NIGHT">NIGHTTIME</option>
+            </select>
+          <button type="submit">INVOKE GOD MODE</button>
+        </form>
+
       </div>
     </body>
     <script src="js/config.js"></script>

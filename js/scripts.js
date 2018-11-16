@@ -1,3 +1,7 @@
+let formWeatherSet = window.location.search.replace(/(\?)/).split("&");
+let setWeather = formWeatherSet.map(val => {
+  return val.split("=")[1];
+}).join(" ");
 let stylesheet = document.styleSheets[1];
 
 const buildMode = false; // toggles build mode. For logging out target areas rather than trying to puzzle out where to put thunder
@@ -36,7 +40,12 @@ const conditionFinder = (conditionId) => {
    }
     return "No condition found!?";
 }
-
+const weatherChangeForm = document.getElementById('weatherChanger');
+const weatherInput = weatherChangeForm.querySelector('#weather');
+const timeInput = weatherChangeForm.querySelector('#time');
+weatherChangeForm.addEventListener('submit',e => {
+  weatherChange(`${weatherInput.value} ${timeInput.value}`);
+});
 const townSpan = document.getElementById('town');
 const textBox = document.getElementById('messageBox');
 const addToBox = (string) => {
@@ -108,20 +117,6 @@ const clearDay = {
   celestialBody: "#F7F211",
   toAdd: [],
   animations: []
-}
-
-const shell = {
-  skyTop: "#",
-  skyMidTop: "#",
-  skyMidBottom: "#",
-  skyBottom: "#",
-  ground: "#",
-  roof: "#",
-  houseFront: "#",
-  houseSide: "#",
-  crescent: "#",
-  celestialBody: "#",
-  toAdd: [""] 
 }
 
 const clearNight = {
@@ -222,7 +217,8 @@ const overcastDay = {
   celestialBody: "#e8e8b5",
   cloud: "#e4e4e4",
   bigCloud: "#9e9494",
-  toAdd: []
+  toAdd: [],
+  animations: []
 }
 
 const overcastNight = {
@@ -254,7 +250,7 @@ const clearRainDay = {
   cloud: "#EEE",
   rainGroup1: "#333",
   rainGroup2: "#666",
-  toAdd: ['cloud','rainGroup2'],
+  toAdd: ['cloud'],
   animations: ['rain'],
 }
 
@@ -270,7 +266,7 @@ const clearRainNight = {
   crescent: "#82827f",
   celestialBody: "#3d3d4c",
   rainGroup2: "#BBB",
-  toAdd: ['rainGroup2'],
+  toAdd: [],
   animations: ['rain'],
 }
 
@@ -324,8 +320,8 @@ const thunderDay = {
   cloud: "#a0a0a0",
   bigCloud: "#545154",
   thunder: "#a0a0a0",
-  toAdd: ['thunder','cloud','bigCloud','rainGroup1','rainGroup2'],
-  animations: ['lightning'],
+  toAdd: ['thunder','cloud','bigCloud'],
+  animations: ['lightning','rain'],
 }
 
 const thunderNight = {
@@ -344,8 +340,8 @@ const thunderNight = {
   cloud: "#1f1c1f",
   bigCloud: "#1f1c1f",
   thunder: '#424242',
-  toAdd: ['cloud','bigCloud','thunder','rainGroup1','rainGroup2'],
-  animations: ['lightning'],
+  toAdd: ['cloud','bigCloud','thunder'],
+  animations: ['lightning', 'rain'],
 }
 
 const snowDay = {
@@ -426,60 +422,60 @@ const applyColorSet = (colorset) => {
 
 let worldState = `${worldWeather} ${timeOfDay}`;
 // FAKE WORLDSTATE SETTER//
-worldState = "SNOW DAY";
+worldState = "THUNDER DAY";
 // END FAKE WORLDSTATE SETTER FOR TESTING
-switch(worldState){
-  case "CLEAR DAY":
-    applyColorSet(clearDay);
-    break;
-  case "CLEAR NIGHT":
-    applyColorSet(clearNight);
-    break;
-  case "LIGHTCLOUD DAY":
-    applyColorSet(lightCloudDay);
-    break;
-  case "LIGHTCLOUD NIGHT":
-    applyColorSet(lightCloudNight);
-    break;
-  case "HEAVYCLOUD DAY":
-    applyColorSet(heavyCloudDay);
-    break;
-  case "HEAVYCLOUD NIGHT":
-    applyColorSet(heavyCloudNight);
-    break;
-  case "FOG DAY":
-    applyColorSet(overcastDay);
-    break;
-  case "FOG NIGHT":
-    applyColorSet(overcastNight);
-    break;
-  case "CLEARRAIN DAY":
-    applyColorSet(clearRainDay);
-    break;
-  case "CLEARRAIN NIGHT":
-    applyColorSet(clearRainNight);
-    break;
-  case "CLOUDRAIN DAY":
-    applyColorSet(cloudRainDay);
-    break;
-  case "CLOUDRAIN NIGHT":
-    applyColorSet(cloudRainNight);
-    break;
-  case "THUNDER DAY":
-    applyColorSet(thunderDay);
-    break;
-  case "THUNDER NIGHT":
-    applyColorSet(thunderNight);
-    break;
-  case "SNOW DAY":
-    applyColorSet(snowDay);
-    break;
-  case "SNOW NIGHT":
-    applyColorSet(snowNight);
-    break;
-
-  default:
-    console.log('hello there');
+const weatherChange = weatherTime => {
+  switch(weatherTime){
+    case "CLEAR DAY":
+      applyColorSet(clearDay);
+      break;
+    case "CLEAR NIGHT":
+      applyColorSet(clearNight);
+      break;
+    case "LIGHTCLOUD DAY":
+      applyColorSet(lightCloudDay);
+      break;
+    case "LIGHTCLOUD NIGHT":
+      applyColorSet(lightCloudNight);
+      break;
+    case "HEAVYCLOUD DAY":
+      applyColorSet(heavyCloudDay);
+      break;
+    case "HEAVYCLOUD NIGHT":
+      applyColorSet(heavyCloudNight);
+      break;
+    case "FOG DAY":
+      applyColorSet(overcastDay);
+      break;
+    case "FOG NIGHT":
+      applyColorSet(overcastNight);
+      break;
+    case "CLEARRAIN DAY":
+      applyColorSet(clearRainDay);
+      break;
+    case "CLEARRAIN NIGHT":
+      applyColorSet(clearRainNight);
+      break;
+    case "CLOUDRAIN DAY":
+      applyColorSet(cloudRainDay);
+      break;
+    case "CLOUDRAIN NIGHT":
+      applyColorSet(cloudRainNight);
+      break;
+    case "THUNDER DAY":
+      applyColorSet(thunderDay);
+      break;
+    case "THUNDER NIGHT":
+      applyColorSet(thunderNight);
+      break;
+    case "SNOW DAY":
+      applyColorSet(snowDay);
+      break;
+    case "SNOW NIGHT":
+      applyColorSet(snowNight);
+      break;
+    default:
+      console.log('hello there');
+  }
 }
-
-
+weatherChange(setWeather);

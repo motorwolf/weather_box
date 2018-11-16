@@ -201,6 +201,7 @@ svg {
       fill: var(--skyTop);
     }
     12% {
+      opacity: 1;
       fill: cyan;
     }
     13% {
