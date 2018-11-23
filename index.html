@@ -4,15 +4,20 @@
     <title> Weather Box </title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet"> 
   </head>
   <body>
     <div class="frameBox">
-    <h1> TINY HOUSE IN YE OLDE <span id ="town"></span></h1>
+    <h1><span id ="town"></span></h1>
+    <form id="changeLocation">
+      <label for="location">ENTER YOUR DESIRED ZIP CODE OR CITY NAME:</label><input type="text" id="location" name="location"/>
+      <button id="locationChanger">CHANGE LOCATION</button>
+    </form>
     </div>
     <div id="frame">
       <div id="window">
       <!-- START SVG -->
-      
+
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full" height="320px" version="1.1" width="320">
 <rect class="R1 C1 skyTop " fill="#0F0" height="10px" width="10px" y="0px" x="0px"></rect> 
 <rect class="R1 C2 skyTop rainGroup1 " fill="#F0F" height="10px" width="10px" y="0px" x="10px"></rect> 
@@ -1045,13 +1050,17 @@
       </div>
       <div id="messageBox">
         Behold, my tiny svg world.
+        <span id="tempSlot"></span>
+        Current weather: <span id="weatherSlot"></span>
         </div>
+        <input type="checkbox" value="godMode" name="godMode" id="godMode"/><label for="godMode"> GOD MODE</label>
          <form id="weatherChanger">
             <input type="text"/>
             <label for="weather">You have chosen god mode. Select thy weather: </label>
             <select name="weather" id="weather">     
               <option value="THUNDER">THUNDER</option>
               <option value="CLEARRAIN">CLEAR RAIN</option>
+              <option value="CLOUDRAIN">RAIN</option>
               <option value="CLEAR">CLEAR SKY</option>
               <option value="LIGHTCLOUD">SOME CLOUDS</option>
               <option value="FOG">FOG</option>
@@ -1065,9 +1074,10 @@
             </select>
           <button type="submit">INVOKE GOD MODE</button>
         </form>
-
+        <button id="reset">RESET?!</button>
       </div>
     </body>
     <script src="js/config.js"></script>
+    <script src="js/api-call.js"></script>
     <script src="js/scripts.js"></script>
   </html>

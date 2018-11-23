@@ -4,7 +4,6 @@
   --skyMidBottom: #23ABFF;
   --skyBottom: #23ABFF;
   --ground: #9aff70; 
-  /* // #9AFF17 TOO NEON? */
   --roof: #333;
   --houseFront: #C33;
   --houseSide: #A01700;
@@ -26,7 +25,24 @@
 }
 
 body {
-  background-color: hotpink;
+background-color: #700043;
+background-color: #332900;
+background-image: url("https://www.transparenttextures.com/patterns/subtle-zebra-3d.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+/* background-color: #332900; */
+/* background-image: url("https://www.transparenttextures.com/patterns/subtle-white-feathers.png"); */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+/* background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png"); */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  font-family: 'VT323',monospace;
+  display: grid;
+  /* background-color: black; */
+}
+
+h1 {
+  font-size: 4em;
+  margin: 0px;
+  font-weight: normal;
 }
 
 #messageBox,
@@ -38,12 +54,14 @@ body {
   padding: 20px;
   margin: 0 auto;
   color: black;
-  font-family: Georgia;
+  font-family: 'VT323',monospace;
   font-size: 20px;
 }
 
 #frame {
-  background-color: brown;
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.8);
+  background-color: #CC7700;
   width: 360px;
   height: 360px;
   padding: 20px;
@@ -56,8 +74,6 @@ body {
   height: 320px;
   background-color: white;
 }
-
-
 .skyTop {
   fill: var(--skyTop);
 }
