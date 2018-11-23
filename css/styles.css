@@ -1,4 +1,6 @@
 :root {
+  --frameColor: white; 
+  --frameText: #700043;
   --skyTop: #1ED2FF;
   --skyMidTop: #14BEFF;
   --skyMidBottom: #23ABFF;
@@ -23,20 +25,55 @@
 * {
   box-sizing: border-box;
 }
+button {
+  background-color: var(--frameText);
+  color: var(--frameColor);
+  border: 2px solid var(--frameColor);
+  padding: 20px;
+  display: block;
+  font-size: 1em;
+  margin: 0 auto;
+}
+label {
+  display: block;
+}
+#town {
+  font-size: 1.25em;
+}
+select {
+  margin-bottom: 1em;
+}
 
+#godModeLabel {
+  font-size: 1.25em;
+  margin: 10px;
+}
+
+#godModeContainer {
+  display: none;
+}
+
+#controls {
+  display: none;
+  background-color: #b5b5b5;
+  padding: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+button:hover {
+  background-color: #902063;
+}
+button#control-weather {
+  min-width: 360px;
+  margin: 0 auto;
+  font-size: 1.25em;
+}
 body {
-background-color: #700043;
-background-color: #332900;
-background-image: url("https://www.transparenttextures.com/patterns/subtle-zebra-3d.png");
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-/* background-color: #332900; */
-/* background-image: url("https://www.transparenttextures.com/patterns/subtle-white-feathers.png"); */
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-/* background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png"); */
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  font-size: 1.8em;
+  background-color: #700043;
+  background-image: url("../img/subtle-zebra-3d.png");
   font-family: 'VT323',monospace;
   display: grid;
-  /* background-color: black; */
 }
 
 h1 {
@@ -59,13 +96,15 @@ h1 {
 }
 
 #frame {
-  /* offset-x | offset-y | blur-radius | spread-radius | color */
-  box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.8);
-  background-color: #CC7700;
-  width: 360px;
-  height: 360px;
+  background-color: var(--frameColor);
+  color: var(--frameText);
   padding: 20px;
   margin: 30px auto;
+}
+input {
+  text-transform: uppercase;
+  margin: 10px;
+  padding: 5px;
 }
 
 #window {

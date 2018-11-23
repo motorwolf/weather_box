@@ -3,8 +3,21 @@ const locationForm = document.getElementById('changeLocation');
 const locationInput = locationForm.querySelector('#location');
 const tempSlot = document.getElementById('tempSlot');
 const weatherSlot = document.getElementById('weatherSlot');
+const weatherControlsHider = document.getElementById('control-weather');
+const weatherControls = document.getElementById('controls');
 console.log(tempSlot,weatherSlot);
 let refreshButton = document.getElementById('reset');
+const godModeContainer = document.getElementById('godModeContainer');
+const godModeCheckbox = document.getElementById('godMode');
+godModeCheckbox.addEventListener('change', e => {
+  console.log(e);
+  if(e.target.checked){
+    godModeContainer.style = 'display:block';
+  }
+  else {
+    godModeContainer.style = 'display:none';
+  }
+});
 refreshButton.addEventListener('click',() => {
   window.location.search = "";
 });
@@ -265,7 +278,8 @@ if(formWeatherSet !== ""){
 }
 if(formWeatherSet){
   if(formWeatherSet[0].indexOf("location") === -1){
-    document.getElementById("godMode").checked = true;
+    godModeCheckbox.checked = true;
+    godModeContainer.style = 'display:block';
     setWeather = formWeatherSet.map(val => {
       return val.split("=")[1];
     }).join(" ");
@@ -276,7 +290,14 @@ if(formWeatherSet){
 }
 let stylesheet = document.styleSheets[1];
 
-const buildMode = true; // toggles build mode. For logging out target areas rather than trying to puzzle out where to put thunder
+const buildMode = false; // toggles build mode. For logging out target areas rather than trying to puzzle out where to put thunder
+
+weatherControlsHider.addEventListener('click', e => {
+  e.preventDefault();
+  weatherControls.style = "display: block";
+  weatherControlsHider.style = 'display: none';
+});
+
 
 const weatherDefinitions = {
   THUNDER: [[200,299]],
@@ -345,6 +366,7 @@ pixels.forEach(rect => {
 });
 }
 
+// default weather
 const weather = 
 { coord: { lon: -103.22, lat: 44.11 },
   weather: 
@@ -368,9 +390,8 @@ const weather =
      sunrise: 1542030321,
      sunset: 1542065305 },
   id: 420032045,
-  name: 'Rapid City',
+  name: 'SOMEWHERE',
   cod: 200 };
-//const worldWeather = conditionFinder(weather.weather[0].id);
 const townName = weather.name;
 townSpan.textContent = townName;
 //============= 
@@ -758,19 +779,19 @@ const weatherChange = weatherTime => {
 const weatherRetriever = (weather) => {
   const worldWeather = conditionFinder(weather.weather[0].id);
   const weatherCountry = countries[weather.sys.country].toUpperCase();
-  const town = weather.name.toUpperCase() + `, ${weatherCountry}`;
-  townSpan.textContent = town;
   let timeOfDay = weather.weather[0].icon[2];
   if(timeOfDay === 'n'){
     timeOfDay = "NIGHT";
   } else {
     timeOfDay = "DAY";
   }
+  const town = weather.name.toUpperCase() + `, ${weatherCountry}`;
+  townSpan.textContent = town;
   const conditions = weather.weather[0].description;
-  const temperature = `Temperature: ${weather.main.temp} Degrees F`;
+  const temperature = `${Math.round(weather.main.temp)} F`;
   const apiWeather = `${worldWeather} ${timeOfDay}`;
-  tempSlot.textContent = temperature;
-  weatherSlot.textContent = conditions;
+  tempSlot.textContent = `TEMP: ${temperature}`;
+  weatherSlot.textContent = `WEATHER: ${conditions}`;
   console.log(weather);
   console.log(apiWeather);
   weatherChange(apiWeather); 
@@ -778,7 +799,14 @@ const weatherRetriever = (weather) => {
 if(setWeather && godMode.checked){
   weatherChange(setWeather);
 }
+const weatherArray = [
+  "London","Stockholm","Boston","Tokyo","Milan","Moscow","Amsterdam","Bern","Cairo","Madrid","Beirut","Sydney","Hong Kong","Tel Aviv","Lima","Mexico City","Honolulu","Montreal","San Francisco"
+];
+const randomWeather = weatherArray[Math.floor(Math.random() * weatherArray.length)];
 if(locWeather){
   APICALL(locWeather);
+} 
+if(!locWeather && !setWeather){
+  APICALL(randomWeather);
 }
 
