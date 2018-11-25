@@ -1,6 +1,7 @@
 :root {
   --frameColor: white; 
-  --frameText: #700043;
+  --frameText: rgb(112,0,67);
+  --frameHover: rgb(152,50,117);
   --skyTop: #1ED2FF;
   --skyMidTop: #14BEFF;
   --skyMidBottom: #23ABFF;
@@ -21,7 +22,6 @@
   --snow: white;
   --rain: #E0E0E0;
 }
-
 * {
   box-sizing: border-box;
 }
@@ -43,16 +43,13 @@ label {
 select {
   margin-bottom: 1em;
 }
-
 #godModeLabel {
   font-size: 1.25em;
   margin: 10px;
 }
-
 #godModeContainer {
   display: none;
 }
-
 #controls {
   display: none;
   background-color: #b5b5b5;
@@ -61,7 +58,7 @@ select {
   text-align: center;
 }
 button:hover {
-  background-color: #902063;
+  background-color: var(--frameHover);
 }
 button#control-weather {
   min-width: 360px;
@@ -70,12 +67,11 @@ button#control-weather {
 }
 body {
   font-size: 1.8em;
-  background-color: #700043;
+  background-color: var(--frameText);
   background-image: url("../img/subtle-zebra-3d.png");
   font-family: 'VT323',monospace;
   display: grid;
 }
-
 h1 {
   font-size: 4em;
   margin: 0px;
@@ -94,7 +90,6 @@ h1 {
   font-family: 'VT323',monospace;
   font-size: 20px;
 }
-
 #frame {
   background-color: var(--frameColor);
   color: var(--frameText);
@@ -106,7 +101,6 @@ input {
   margin: 10px;
   padding: 5px;
 }
-
 #window {
   position: relative;
   width: 320px;
@@ -132,24 +126,18 @@ input {
 .roof {
   fill: var(--roof);
 }
-
 .houseFront {
   fill: var(--houseFront);
 }
-
 .houseSide {
   fill: var(--houseSide);
 }
-
 .crescent {
   fill: var(--crescent);
 }
-
 .celestialBody {
   fill: var(--celestialBody);
 }
-
-
 .snowroof {
   /* fill: var(--snowroof); */
 }
@@ -162,43 +150,35 @@ input {
 .cloud {
   /* fill: var(--cloud); */
 }
-
 .snow {
   /* fill: var(--snow); */
 }
-
 .thunder {
   /* animation: lightning 20s infinite; */ 
   /* fill: var(--thunder); */
 }
 .rainGroup1 {
   margin: 0;
-  /* fill: var(--rain); */
 }
 .rainGroup2 {
-  /**/
   margin: 0;
 }
-
 .testWindowFrame {
   width: 140px;
   padding: 20px;
   height: 140px;
   background-color: brown;
 }
-
 #testWindow {
   width: 100px;
   height: 100px;
   background-color: white;
 }
-
 @keyframes rainCycle1 {
   50% {
     opacity: 0.7;
   }
 }
-
 @keyframes rainCycle2 {
   1% {
     opacity: 0.7;
@@ -210,7 +190,6 @@ input {
     opacity: 0.7;
   }
 }
-
 @keyframes twinkle {
   20% {
     fill: var(--stars);
@@ -289,5 +268,3 @@ svg {
     opacity: 0.7;
   }
   }
-
-

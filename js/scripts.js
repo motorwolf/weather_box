@@ -5,7 +5,6 @@ const tempSlot = document.getElementById('tempSlot');
 const weatherSlot = document.getElementById('weatherSlot');
 const weatherControlsHider = document.getElementById('control-weather');
 const weatherControls = document.getElementById('controls');
-console.log(tempSlot,weatherSlot);
 let refreshButton = document.getElementById('reset');
 const godModeContainer = document.getElementById('godModeContainer');
 const godModeCheckbox = document.getElementById('godMode');
@@ -390,15 +389,14 @@ const weather =
      sunrise: 1542030321,
      sunset: 1542065305 },
   id: 420032045,
-  name: 'SOMEWHERE',
+  name: 'LOADING...',
   cod: 200 };
-const townName = weather.name;
+let townName = weather.name;
 townSpan.textContent = townName;
 //============= 
 // FIND TIME
 let time = new Date;
 let hours = time.getHours();
-console.log(hours);
 const sunrise = weather.sys.sunrise;
 const sunTime = new Date(sunrise).getUTCHours();
 //console.log(sunTime);
@@ -682,6 +680,21 @@ const snowNight = {
   animations: ['snow'],
 }
 
+const apocalypse = {
+  skyTop: "red", 
+  skyMidTop: "orange",
+  skyMidBottom: "yellow",
+  skyBottom: "green",
+  ground: "blue",
+  roof: "purple",
+  houseFront: "hotpink",
+  houseSide: "gray",
+  crescent: "purple",
+  celestialBody: "purple",
+  toAdd: [],
+  animations: [],
+}
+
 const animationList = {
   lightning: {
     ".thunder": 'lightning 15s infinite',
@@ -772,10 +785,26 @@ const weatherChange = weatherTime => {
     case "SNOW NIGHT":
       applyColorSet(snowNight);
       break;
+    case "APOCALYPSE":
+      applyColorSet(apocalypse);
     default:
       console.log('hello there');
   }
 }
+const backgroundTemp = (temperature) => {
+  let red = 0;
+  let green = 0;
+  let blue = temperature + 50;
+  if(blue > 100){
+    blue = 100 - temperature;
+    red = temperature + 50;
+    green = temperature/4;
+  }
+  return {
+    mainColor: `rgb(${red},${green},${blue})`,
+    hoverColor: `rgb(${red + 50},${green + 50},${blue + 50})`};
+}
+
 const weatherRetriever = (weather) => {
   const worldWeather = conditionFinder(weather.weather[0].id);
   const weatherCountry = countries[weather.sys.country].toUpperCase();
@@ -788,19 +817,24 @@ const weatherRetriever = (weather) => {
   const town = weather.name.toUpperCase() + `, ${weatherCountry}`;
   townSpan.textContent = town;
   const conditions = weather.weather[0].description;
-  const temperature = `${Math.round(weather.main.temp)} F`;
+  let tempNumber = Math.round(weather.main.temp);
+  const warmth = backgroundTemp(tempNumber);
+  document.documentElement.style.setProperty("--frameText",warmth.mainColor);
+  document.documentElement.style.setProperty("--frameHover",warmth.hoverColor);
+  const temperature = `${tempNumber} F`;
   const apiWeather = `${worldWeather} ${timeOfDay}`;
   tempSlot.textContent = `TEMP: ${temperature}`;
   weatherSlot.textContent = `WEATHER: ${conditions}`;
-  console.log(weather);
-  console.log(apiWeather);
+  //console.log(weather);
+  //console.log(apiWeather);
   weatherChange(apiWeather); 
 }
 if(setWeather && godMode.checked){
+  townSpan.textContent = setWeather;
   weatherChange(setWeather);
 }
 const weatherArray = [
-  "London","Stockholm","Boston","Tokyo","Milan","Moscow","Amsterdam","Bern","Cairo","Madrid","Beirut","Sydney","Hong Kong","Tel Aviv","Lima","Mexico City","Honolulu","Montreal","San Francisco"
+  "London","Stockholm","Boston","Tokyo","Milan","Moscow","Amsterdam","Bern","Cairo","Madrid","Beirut","Sydney","Hong Kong","Sao Paulo","Lima","Mexico City","Honolulu","Montreal","San Francisco"
 ];
 const randomWeather = weatherArray[Math.floor(Math.random() * weatherArray.length)];
 if(locWeather){
