@@ -20,6 +20,9 @@ godModeCheckbox.addEventListener('change', e => {
 refreshButton.addEventListener('click',() => {
   window.location.search = "";
 });
+
+// For readability's sake, see if there's a way you can store these country values in a separate file (a CSV perhaps?),
+// and parse that file accordingly to get your desired value(s)
 const countries = {
     AF: 'Afghanistan',
     AX: 'Aland Islands',
@@ -341,6 +344,10 @@ const conditionFinder = (conditionId) => {
   console.log('but it keeps running');
   return "No condition found!?";
 }
+
+// Since these variables seem pretty important, I would add comments as to what elements we are selecting
+// You can do the same thing above each function, too. Like for `conditionFinder` you could say "gets a condition ID from our API call and parses the data into blah blah blah"
+
 const weatherChangeForm = document.getElementById('weatherChanger');
 const weatherInput = weatherChangeForm.querySelector('#weather');
 const timeInput = weatherChangeForm.querySelector('#time');
@@ -404,6 +411,9 @@ const sunTime = new Date(sunrise).getUTCHours();
 //textBox.textContent += `It is ${timeOfDay.toLowerCase()}time.`;
 //============
 // COLOR STATES
+
+// Another organization-y thing, would be to put these constants at the bottom of the page,
+// that way it's easier to navigate and read through the functional parts of your code
 const clearDay = {
   skyTop: "#1ED2FF", 
   skyMidTop: "#14BEFF",
@@ -713,6 +723,8 @@ const animationList = {
   }
 }
 
+// For a function like this, I would split apart each `if` statement into separate functions,
+// and then call them in my `applyColorSet` method
 const applyColorSet = (colorset) => {
   for(let color in colorset){
     if(color !== 'toAdd' && color !== 'animations'){
@@ -732,8 +744,8 @@ const applyColorSet = (colorset) => {
         findSelectorAddStyle(element,'animation',animObj[element]);
       }
     });
-    }
   }
+}
 
 const weatherChange = weatherTime => {
   switch(weatherTime){
@@ -791,6 +803,7 @@ const weatherChange = weatherTime => {
       console.log('hello there');
   }
 }
+
 const backgroundTemp = (temperature) => {
   let red = 0;
   let green = 0;
