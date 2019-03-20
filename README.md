@@ -1,5 +1,5 @@
 # WEATHER BOX
-![BERKELEY RAIN DAY](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/berkeley-day-rain.gif)
+![THUNDER](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/thunder-night.gif)
 
 The weather box is a pixel generated map of svg squares that change color and animate based on the current weather. Enter the name of a city into the form and house and landscape will update to reflect that region's current weather. The local time will also impact the display.
 
@@ -10,8 +10,6 @@ When the weather is cold, the background gets progressively bluer and for warmer
 ![SAO PAULO CLOUDY DAY](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/sao_paulo_overcast.png)
 
 Sixteen representations of weather are available, and some are animated in pure CSS! Stars twinkle, thunder claps, and snow swirls.
-
-![THUNDER](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/thunder-night.gif)
 
 ![SNOW DAY](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/snow-day.gif)
 
