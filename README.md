@@ -1,5 +1,29 @@
 # WEATHER BOX
-Weather box is a procedurally generated svg comprised of pixel boxes delineated by css classes to create a graphical representation of a house and weather. The weather is fetched from Open Weather Map when a user enters a weather location, and the various pieces of the svg are changed to conform to these weather conditions. The areas on the svg that were to be changed were first mapped out in a series of coordinates, and applied to the svg generator to output the proper classes when the coordinates matched. I added a build mode to facilitate adding these areas, which can be toggled on and off. In build mode, any pixel that is clicked on changes color and outputs the coordinates to the console. The backdrop changes on a formula depending on whether the weather is warm or cold. 
+![BERKELEY RAIN DAY](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/berkeley-day-rain.gif)
+
+The weather box is a pixel generated map of svg squares that change color and animate based on the current weather. Enter the name of a city into the form and house and landscape will update to reflect that region's current weather. The local time will also impact the display.
+
+![BOSTON CLEAR DAY](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/boston_clear.png)
+
+When the weather is cold, the background gets progressively bluer and for warmer temperatures, it gets red.
+
+![SAO PAULO CLOUDY DAY](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/sao_paulo_overcast.png)
+
+Sixteen representations of weather are available, and some are animated in pure CSS! Stars twinkle, thunder claps, and snow swirls.
+
+![THUNDER](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/thunder_night.gif)
+
+![TOYAMA NIGHT RAIN](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/night-rain-toyama.gif)
+
+To inflict any type of weather on the tiny house, simply enter "God Mode" and enter whatever weather you desire.
 
 Live example at http://www.kristenpaynedesign.com/weather
-![BERKELEY RAIN DAY](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/berkeley-day-rain.gif)
+
+# Built With
+Open Weather Map API
+Javascript ES6
+CSS3
+HTML5
+
+# NOTES ABOUT FILES
+
