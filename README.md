@@ -20,10 +20,10 @@ To inflict any type of weather on the tiny house, simply enter "God Mode" and en
 Live example at http://www.kristenpaynedesign.com/weather
 
 # Built With
-Open Weather Map API
-Javascript ES6
-CSS3
-HTML5
+*Open Weather Map API
+*Javascript ES6
+*CSS3
+*HTML5
 
-# NOTES ABOUT FILES
+# About Files
 
