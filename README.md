@@ -11,7 +11,7 @@ When the weather is cold, the background gets progressively bluer and for warmer
 
 Sixteen representations of weather are available, and some are animated in pure CSS! Stars twinkle, thunder claps, and snow swirls.
 
-![THUNDER](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/thunder_night.gif)
+![THUNDER](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/thunder-night.gif)
 
 ![TOYAMA NIGHT RAIN](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/night-rain-toyama.gif)
 
