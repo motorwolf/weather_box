@@ -13,6 +13,8 @@ Sixteen representations of weather are available, and some are animated in pure 
 
 ![THUNDER](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/thunder-night.gif)
 
+![SNOW DAY](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/snow-day.gif)
+
 ![TOYAMA NIGHT RAIN](https://raw.githubusercontent.com/motorwolf/weather_box/master/docs/night-rain-toyama.gif)
 
 To inflict any type of weather on the tiny house, simply enter "God Mode" and enter whatever weather you desire.
@@ -20,10 +22,11 @@ To inflict any type of weather on the tiny house, simply enter "God Mode" and en
 Live example at http://www.kristenpaynedesign.com/weather
 
 # Built With
-*Open Weather Map API
-*Javascript ES6
-*CSS3
-*HTML5
+* Open Weather Map API
+* Javascript ES6
+* CSS3
+* HTML5
 
 # About Files
 
+There is a constructor file that generates the SVG. There is also a build mode that you can toggle to console log the coordinates of a specific pixel that will also highlight it.
